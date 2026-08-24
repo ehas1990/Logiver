@@ -1,12 +1,8 @@
-/**
- * Logiver - Logistics & Transportation Website Scripts
- * Features: Lenis Smooth Scroll, GSAP + ScrollTrigger, Swiper, Counter, Project Filters
- */
+
 
 document.addEventListener('DOMContentLoaded', () => {
   'use strict';
 
-  // 1. LENIS SMOOTH SCROLL & GSAP TICKER INTEGRATION
   let lenis;
   if (typeof Lenis !== 'undefined') {
     lenis = new Lenis({
@@ -30,11 +26,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // 2. REGISTER GSAP PLUGINS
   if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
     gsap.registerPlugin(ScrollTrigger);
 
-    // Sticky Header GSAP Animation
+
     const header = document.querySelector('.site-header');
     if (header) {
       ScrollTrigger.create({
@@ -44,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    // Hero GSAP Animations
+
     const heroTl = gsap.timeline({ defaults: { ease: 'power3.out' } });
     heroTl
       .from('.hero-badge', { opacity: 0, y: 25, duration: 0.8, delay: 0.2 })
@@ -53,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
       .from('.hero-buttons', { opacity: 0, y: 25, duration: 0.8 }, '-=0.6')
       .from('.hero-visual-card', { opacity: 0, scale: 0.9, duration: 1 }, '-=0.7');
 
-    // Floating Hero Elements GSAP
+
     const floatingItems = document.querySelectorAll('.floating-elem');
     if (floatingItems.length) {
       floatingItems.forEach((el, i) => {
@@ -70,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    // Parallax on Aircraft Banner Section
+
     const parallaxBgs = document.querySelectorAll('.parallax-banner-bg');
     if (parallaxBgs.length) {
       parallaxBgs.forEach((bg) => {
@@ -89,28 +84,52 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    // Footer Giant "Logiver" Watermark Scroll (Left to Center on scroll down, reverses on scroll up)
+
     const footerWatermark = document.querySelector('.footer-giant-watermark');
     if (footerWatermark) {
-      gsap.fromTo(
-        footerWatermark,
-        { xPercent: -35, opacity: 0.4 },
-        {
-          xPercent: 0,
-          opacity: 1,
-          ease: 'power1.out',
-          scrollTrigger: {
-            trigger: '.site-footer-main',
-            start: 'top 95%',
-            end: 'bottom bottom',
-            scrub: 1.2,
-          },
+      ScrollTrigger.matchMedia({
+        // Desktop & Tablets
+        "(min-width: 768px)": function() {
+          gsap.fromTo(
+            footerWatermark,
+            { x: '-25vw', opacity: 0.3 },
+            {
+              x: '0vw',
+              opacity: 1,
+              ease: 'power1.out',
+              scrollTrigger: {
+                trigger: '.site-footer-main',
+                start: 'top 95%',
+                end: 'bottom bottom',
+                scrub: 1.2,
+                invalidateOnRefresh: true,
+              },
+            }
+          );
+        },
+        // Mobile devices (< 768px)
+        "(max-width: 767.98px)": function() {
+          gsap.fromTo(
+            footerWatermark,
+            { x: '-35vw', opacity: 0.25 },
+            {
+              x: '0vw',
+              opacity: 1,
+              ease: 'power1.out',
+              scrollTrigger: {
+                trigger: '.site-footer-main',
+                start: 'top 95%',
+                end: 'bottom bottom',
+                scrub: 1,
+                invalidateOnRefresh: true,
+              },
+            }
+          );
         }
-      );
+      });
     }
   }
 
-  // 3. STATS ANIMATED COUNTERS (GSAP ScrollTrigger)
   const counterElements = document.querySelectorAll('.stat-number');
   if (counterElements.length && typeof gsap !== 'undefined') {
     counterElements.forEach((el) => {
@@ -137,8 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 4. SWIPER.JS INITIALIZATIONS
-  // Client Logos Swiper
+
   if (document.querySelector('.clients-swiper')) {
     new Swiper('.clients-swiper', {
       slidesPerView: 2,
@@ -156,7 +174,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Testimonials Swiper (Laptop/Desktop: 4, Tablet: 3, Mobile: 1)
   if (document.querySelector('.testimonials-swiper')) {
     new Swiper('.testimonials-swiper', {
       slidesPerView: 1,
@@ -191,7 +208,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 5. PROJECT SHOWCASE ACCORDION GALLERY
   const projectItems = document.querySelectorAll('.project-accordion-item');
   const projectNumBtns = document.querySelectorAll('.project-num-btn');
 
@@ -219,7 +235,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     item.addEventListener('mouseenter', () => {
-      // Smooth hover expand on desktop
+
       if (window.innerWidth >= 992) {
         setActiveProject(index);
       }
@@ -238,7 +254,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 6. BACK TO TOP BUTTON
   const backToTopBtn = document.getElementById('backToTopBtn');
   if (backToTopBtn) {
     window.addEventListener('scroll', () => {
@@ -259,7 +274,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 7. INITIALIZE AOS
   if (typeof AOS !== 'undefined') {
     AOS.init({
       duration: 800,
@@ -270,7 +284,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 8. QUOTE FORM INTERACTION
   const quoteForm = document.getElementById('quoteRequestForm');
   if (quoteForm) {
     quoteForm.addEventListener('submit', (e) => {
@@ -287,7 +300,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 9. DARK TEAL COMPOSITION (WHY CHOOSE LOGIVER) - SCOPED MOUSE-SCROLL CARD EFFECT
   const darkTealSection = document.querySelector('.dark-composition-section');
   if (darkTealSection) {
     const tiles = darkTealSection.querySelectorAll('.dark-service-tile');
@@ -297,7 +309,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const cardConfigs = [
         { yFactor: -0.22, rotFactor: -0.6, scaleFactor: 0.0003 },
-        { yFactor: 0.16,  rotFactor: 0.4,  scaleFactor: -0.0002 },
+        { yFactor: 0.16, rotFactor: 0.4, scaleFactor: -0.0002 },
         { yFactor: -0.28, rotFactor: -0.8, scaleFactor: 0.0004 },
       ];
 
