@@ -163,10 +163,6 @@ document.addEventListener('DOMContentLoaded', () => {
         disableOnInteraction: false,
         pauseOnMouseEnter: true,
       },
-      pagination: {
-        el: '.testimonials-pagination-dots',
-        clickable: true,
-      },
       navigation: {
         nextEl: '.testimonials-next-btn',
         prevEl: '.testimonials-prev-btn',
