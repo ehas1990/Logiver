@@ -212,7 +212,6 @@ img {
 
 /* MAIN NAVBAR */
 .main-navbar {
- 
   padding: 10px 0;
 }
 
@@ -272,6 +271,35 @@ img {
 
 .btn-quote-header:hover {
   color: #fff;
+}
+
+/* Mobile Offcanvas Drawer */
+@media (max-width: 991.98px) {
+  .main-offcanvas-menu.offcanvas-lg {
+    background-color: var(--primary-navy);
+    width: 320px;
+    box-shadow: -10px 0 35px rgba(0, 0, 0, 0.5);
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .main-offcanvas-menu .nav-menu {
+    width: 100%;
+  }
+
+  .main-offcanvas-menu .nav-menu .nav-link {
+    padding: 12px 0 !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 1.05rem;
+  }
+
+  .main-offcanvas-menu .btn-quote-header {
+    background-color: var(--theme-yellow);
+    color: var(--primary-navy);
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-align: center;
+    width: 100%;
+  }
 }
 
 /* ==========================================================================
