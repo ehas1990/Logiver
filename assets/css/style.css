@@ -632,9 +632,45 @@ img {
    10. CLIENTS BRANDS CAROUSEL
    ========================================================================== */
 .client-brands-sec {
-  padding: 50px 0;
+  padding-top: 80px;
+  padding-bottom: 80px;
   border-bottom: 1px solid var(--border-light);
   overflow: hidden;
+}
+
+.client-brands-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--text-dark);
+  display: inline-block;
+}
+
+.client-brands-title strong {
+  color: var(--theme-red);
+}
+
+@media (max-width: 991.98px) {
+  .client-brands-sec {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  .client-brands-title {
+    font-size: 1.02rem;
+    letter-spacing: 1px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .client-brands-sec {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+  .client-brands-title {
+    font-size: 0.92rem;
+    letter-spacing: 0.5px;
+  }
 }
 
 .brands-marquee-wrap {
