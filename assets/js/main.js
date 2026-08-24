@@ -89,20 +89,23 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    // Process Cards Stagger reveal
-    const processItems = document.querySelectorAll('.process-feature-item');
-    if (processItems.length) {
-      gsap.from(processItems, {
-        opacity: 0,
-        x: 40,
-        duration: 0.8,
-        stagger: 0.18,
-        ease: 'power2.out',
-        scrollTrigger: {
-          trigger: '.process-feature-list',
-          start: 'top 80%',
-        },
-      });
+    // Footer Giant "Logiver" Watermark Scroll (Left to Right on scroll down)
+    const footerWatermark = document.querySelector('.footer-giant-watermark');
+    if (footerWatermark) {
+      gsap.fromTo(
+        footerWatermark,
+        { xPercent: -25 },
+        {
+          xPercent: 25,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: '.site-footer-main',
+            start: 'top bottom',
+            end: 'bottom bottom',
+            scrub: 1.2,
+          },
+        }
+      );
     }
   }
 
