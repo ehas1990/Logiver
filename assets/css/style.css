@@ -1195,10 +1195,13 @@ img {
    ========================================================================== */
 .quote-request-sec {
   position: relative;
-  background-color: #f4f7f9;
-  background-image: url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=2000&auto=format&fit=crop');
+  background-color: #f8fafc;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.94) 0%, rgba(255, 255, 255, 0.88) 55%, rgba(255, 255, 255, 0.72) 100%),
+    url('https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?q=80&w=2000&auto=format&fit=crop');
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
   padding: 100px 0;
 }
 
