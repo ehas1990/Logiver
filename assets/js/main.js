@@ -89,18 +89,19 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    // Footer Giant "Logiver" Watermark Scroll (Left to Right on scroll down)
+    // Footer Giant "Logiver" Watermark Scroll (Left to Center on scroll down, reverses on scroll up)
     const footerWatermark = document.querySelector('.footer-giant-watermark');
     if (footerWatermark) {
       gsap.fromTo(
         footerWatermark,
-        { xPercent: -25 },
+        { xPercent: -35, opacity: 0.4 },
         {
-          xPercent: 25,
-          ease: 'none',
+          xPercent: 0,
+          opacity: 1,
+          ease: 'power1.out',
           scrollTrigger: {
             trigger: '.site-footer-main',
-            start: 'top bottom',
+            start: 'top 95%',
             end: 'bottom bottom',
             scrub: 1.2,
           },
