@@ -24,6 +24,7 @@
   box-sizing: border-box;
 }
 
+html,
 body {
   font-family: var(--font-family);
   color: var(--text-dark);
@@ -31,6 +32,14 @@ body {
   line-height: 1.65;
   font-size: 15px;
   overflow-x: hidden;
+  max-width: 100%;
+}
+
+#smooth-wrapper,
+#smooth-content {
+  overflow-x: hidden;
+  max-width: 100%;
+  width: 100%;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -317,6 +326,7 @@ img {
   justify-content: flex-end;
   padding-top: 180px;
   padding-bottom: 90px;
+  overflow: hidden;
 }
 
 .hero-watermark-bg {
@@ -515,6 +525,7 @@ img {
   color: #fff;
   padding: 90px 0 110px 0;
   position: relative;
+  overflow: hidden;
 }
 
 .dark-services-header {
@@ -571,6 +582,7 @@ img {
   background-image: url('https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?q=80&w=2000&auto=format&fit=crop');
   background-size: cover;
   background-position: center;
+  overflow: hidden;
 }
 
 /* ==========================================================================
@@ -580,6 +592,7 @@ img {
   background-color: var(--primary-navy);
   color: #fff;
   padding: 100px 0;
+  overflow: hidden;
 }
 
 .why-card-grid {
@@ -746,6 +759,7 @@ img {
   padding: 100px 0;
   background-color: var(--bg-white);
   position: relative;
+  overflow: hidden;
 }
 
 /* Numbered Side Navigation */
@@ -1555,5 +1569,100 @@ span.text-ticker {
   .newsletter-input-group {
     margin-left: 0;
     margin-top: 15px;
+  }
+}
+
+/* Mobile-only responsive containment (prevents horizontal body scrolling on 320px - 430px) */
+@media (max-width: 767.98px) {
+  html, body {
+    overflow-x: hidden !important;
+    position: relative;
+    max-width: 100vw;
+  }
+
+  .top-info-item {
+    font-size: 0.74rem;
+    margin-right: 10px;
+    gap: 4px;
+  }
+
+  .hero-section {
+    padding-top: 190px;
+    padding-bottom: 60px;
+  }
+
+  .hero-watermark-bg {
+    font-size: clamp(34px, 12vw, 64px);
+    letter-spacing: 3px;
+    top: 20px;
+  }
+
+  .hero-top-floating-box {
+    padding: 16px 14px;
+    max-width: 100%;
+  }
+
+  .hero-top-floating-box h1 {
+    font-size: clamp(26px, 7.5vw, 36px);
+    line-height: 1.25;
+    word-break: break-word;
+  }
+
+  .hero-bottom-floating-box {
+    padding: 16px 14px;
+    max-width: 100%;
+    margin-top: 15px;
+  }
+
+  .hero-bottom-floating-box p {
+    font-size: 0.92rem;
+  }
+
+  .intro-section {
+    padding: 60px 0 40px 0;
+  }
+
+  .intro-right-content {
+    padding-left: 0;
+    margin-top: 20px;
+  }
+
+  .intro-right-content h1 {
+    font-size: clamp(1.25rem, 4.5vw, 1.65rem);
+    line-height: 1.35;
+    word-break: break-word;
+  }
+
+  .hanging-container-img {
+    max-width: 100%;
+  }
+
+  .stats-metric-section {
+    padding: 30px 0 60px 0;
+  }
+
+  .quote-request-sec {
+    padding: 60px 0;
+  }
+
+  .quote-yellow-card {
+    padding: 24px 16px;
+  }
+
+  .quote-yellow-card h3 {
+    font-size: 1.35rem;
+  }
+
+  .latest-blog-sec {
+    padding: 60px 0;
+  }
+
+  .site-footer-main {
+    padding: 60px 0 25px 0;
+  }
+
+  .footer-giant-watermark {
+    font-size: clamp(54px, 16vw, 110px);
+    letter-spacing: 3px;
   }
 }
