@@ -579,11 +579,22 @@
       <!-- 13. TESTIMONIALS SECTION -->
       <section class="testimonials-section-new">
         <div class="container-fluid px-lg-5">
-          <div class="text-center max-w-700 mx-auto mb-5" data-aos="fade-up">
-            <span class="logiver-tag">Logiver Testimonials</span>
-            <h2 class="display-6 fw-extrabold">
-              WHAT OUR CLIENTS SAY ABOUT LOGIVER LOGISTICS <span class="heading-light-highlight">SERVICES.</span>
-            </h2>
+          <!-- Testimonials Header Split (2 Columns) -->
+          <div class="row align-items-end justify-content-between g-4 mb-5" data-aos="fade-up">
+            <div class="col-lg-8 col-md-8">
+              <span class="logiver-tag">Logiver Testimonials</span>
+              <h2 class="display-6 fw-extrabold mb-0">
+                WHAT OUR CLIENTS SAY ABOUT LOGIVER LOGISTICS <span class="heading-light-highlight">SERVICES.</span>
+              </h2>
+            </div>
+            <div class="col-lg-4 col-md-4 text-md-end d-flex align-items-center justify-content-md-end gap-2">
+              <button type="button" class="testimonials-nav-btn testimonials-prev-btn" aria-label="Previous slide">
+                <i class="bi bi-chevron-left"></i>
+              </button>
+              <button type="button" class="testimonials-nav-btn testimonials-next-btn" aria-label="Next slide">
+                <i class="bi bi-chevron-right"></i>
+              </button>
+            </div>
           </div>
 
           <div class="testimonials-slider-container position-relative" data-aos="fade-up" data-aos-delay="150">
@@ -723,15 +734,9 @@
               </div>
             </div>
 
-            <!-- Controls (Prev, Pagination Dots, Next) -->
-            <div class="testimonials-controls-wrap">
-              <button type="button" class="testimonials-nav-btn testimonials-prev-btn" aria-label="Previous slide">
-                <i class="bi bi-chevron-left"></i>
-              </button>
+            <!-- Centered Pagination Dots -->
+            <div class="d-flex justify-content-center mt-4">
               <div class="testimonials-pagination-dots"></div>
-              <button type="button" class="testimonials-nav-btn testimonials-next-btn" aria-label="Next slide">
-                <i class="bi bi-chevron-right"></i>
-              </button>
             </div>
           </div>
         </div>
